@@ -44,7 +44,7 @@ function App() {
 
   const handleLogout = () => {
     setCurrentUser(null);
-    navigate("/login")
+    navigate("/")
   };
 
   const handleEditPost = (postId) => {
@@ -64,12 +64,11 @@ function App() {
     <>
       
       <Routes>
-      <Route exact path="/login" component={Login} element={<Login onLogin={handleLogin}   />}  />
+      <Route exact path="/" component={Login} element={<Login onLogin={handleLogin}   />}  />
         <Route path="/register"  element={<Register  onRegister={handleRegister}/>} />
         <Route path="/home" element={<Home  onLogout={handleLogout}  user={currentUser} />} />
         <Route path="/admin-panel" element={<AdminPanel  onAcceptPost={handleAcceptPost} posts={posts} onDeletePost={handleDeletePost} />} />
         
-        {/* <Route path="/create-post" element={<CreatePost onAddPost={handleAddPost} />} /> */}
         <Route path="/create-post/:id" element={<CreatePost posts={posts} onAddPost={handleAddPost} />} />
         <Route path="/create-post" element={<CreatePost posts={posts} onAddPost={handleAddPost} />} />
         <Route path="/list" element={<PostList posts={posts} onEditPost={handleEditPost}  currentUser={currentUser}

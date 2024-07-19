@@ -57,6 +57,7 @@ function Register() {
         users.push({ userName, password,email,phoneNumber });
         localStorage.setItem('users', JSON.stringify(users));
         toast.success('Registration successful');
+        navigate('/')
     };
 
     return (
